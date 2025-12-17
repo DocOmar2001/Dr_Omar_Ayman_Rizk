@@ -1,0 +1,562 @@
+<!-- FILE: index.html -->
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>د. عمر أيمن رزق — بورتفوليو</title>
+  <meta name="description" content="بورتفوليو د. عمر أيمن رزق — طبيب امتياز، خبير ذكاء صناعي، مدرب تعليم طبي، جرافيك ديزاينر.">
+  <link rel="icon" href="data:,">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+
+  <style>
+  /* ---------- Reset & base ---------- */
+  :root{
+    --bg-dark: #0f1724;
+    --bg-darker: #061025;
+    --card: rgba(11, 18, 32, 0.7);
+    --accent: #06b6d4;
+    --accent-secondary: #7c3aed;
+    --text-primary: #e6eef6;
+    --text-muted: #94a3b8;
+    --glass: rgba(255, 255, 255, 0.05);
+    --glass-border: rgba(255, 255, 255, 0.08);
+    --radius: 20px;
+    --maxw: 1200px;
+    --font-main: 'Tajawal', 'Segoe UI', Tahoma, Arial, sans-serif;
+    --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  *{box-sizing:border-box;margin:0;padding:0}
+
+  html,body{
+    height:100%;
+    font-family: var(--font-main);
+    background: radial-gradient(circle at 50% 0%, #1e293b 0%, #0f1724 50%, #020617 100%);
+    background-attachment: fixed;
+    color: var(--text-primary);
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+  }
+
+  /* Scrollbar */
+  ::-webkit-scrollbar { width: 10px; }
+  ::-webkit-scrollbar-track { background: var(--bg-darker); }
+  ::-webkit-scrollbar-thumb { background: #334155; border-radius: 5px; }
+  ::-webkit-scrollbar-thumb:hover { background: #475569; }
+
+  a{color:inherit;text-decoration:none;transition: var(--transition);}
+
+  .container{
+    max-width:var(--maxw);
+    margin:0 auto;
+    padding:40px 24px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* ---------- Header / Hero ---------- */
+  header {
+    display:flex;
+    gap:20px;
+    align-items:center;
+    justify-content:space-between;
+    padding: 20px;
+    background: var(--glass);
+    backdrop-filter: blur(12px);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius);
+    margin-bottom: 40px;
+    animation: slideDown 0.8s ease-out;
+  }
+
+  .brand{display:flex;gap:18px;align-items:center}
+
+  .logo {
+    width: 64px;
+    height: 64px;
+    border-radius: 18px;
+    background: linear-gradient(135deg, var(--accent), var(--accent-secondary));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    font-size: 20px;
+    color: white;
+    box-shadow: 0 4px 20px rgba(6, 182, 212, 0.4);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .logo::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: linear-gradient(45deg, transparent 40%, rgba(255,255,255,0.4) 50%, transparent 60%);
+    transform: translateX(-100%);
+    animation: shimmer 3s infinite;
+  }
+
+  .brand-text h1 {
+    font-size: 24px;
+    font-weight: 700;
+    background: linear-gradient(90deg, #fff, #cbd5e1);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .brand-text p {
+    color: var(--text-muted);
+    font-size: 14px;
+    margin-top: 4px;
+    font-weight: 500;
+  }
+
+  nav{display:flex;gap:12px}
+
+  .btn{
+    background: var(--glass);
+    padding:10px 18px;
+    border-radius: 12px;
+    border:1px solid var(--glass-border);
+    font-weight: 500;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .btn:hover {
+    background: rgba(255,255,255,0.1);
+    transform: translateY(-2px);
+  }
+
+  .btn-primary{
+    background: linear-gradient(135deg, var(--accent), var(--accent-secondary));
+    color: #fff;
+    border: none;
+    box-shadow: 0 4px 12px rgba(124, 58, 237, 0.3);
+  }
+
+  .btn-primary:hover {
+    box-shadow: 0 6px 16px rgba(124, 58, 237, 0.5);
+  }
+
+  /* ---------- Grid ---------- */
+  .grid{
+    display:grid;
+    grid-template-columns: 1fr 380px;
+    gap: 28px;
+    animation: fadeIn 1s ease-out 0.3s backwards;
+  }
+
+  .card {
+    background: var(--card);
+    padding: 32px;
+    border-radius: var(--radius);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    border: 1px solid var(--glass-border);
+    backdrop-filter: blur(8px);
+    transition: var(--transition);
+  }
+
+  .card:hover {
+    border-color: rgba(255,255,255,0.15);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+    transform: translateY(-2px);
+  }
+
+  .section-title {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    position: relative;
+    padding-right: 16px;
+  }
+
+  .section-title::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 6px;
+    height: 24px;
+    background: var(--accent);
+    border-radius: 4px;
+  }
+
+  .about-text {
+    color: var(--text-muted);
+    line-height: 1.8;
+    font-size: 16px;
+    margin-bottom: 24px;
+  }
+
+  .skills{display:flex;flex-wrap:wrap;gap:12px;margin-top:20px}
+  .skill{
+    background: rgba(6, 182, 212, 0.1);
+    color: #22d3ee;
+    padding: 8px 16px;
+    border-radius: 50px;
+    font-size: 13px;
+    font-weight: 600;
+    border: 1px solid rgba(6, 182, 212, 0.2);
+    transition: var(--transition);
+  }
+
+  .skill:hover {
+    background: rgba(6, 182, 212, 0.2);
+    transform: scale(1.05);
+  }
+
+  /* ---------- Portfolio ---------- */
+  .portfolio-grid {
+    display:grid;
+    grid-template-columns:repeat(auto-fill, minmax(240px, 1fr));
+    gap: 20px;
+    margin-top: 24px;
+  }
+
+  .proj {
+    height: 180px;
+    border-radius: 16px;
+    overflow:hidden;
+    position:relative;
+    border:1px solid var(--glass-border);
+    group: hover;
+  }
+
+  .proj img {
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    transition: transform 0.5s ease;
+  }
+
+  .proj:hover img {
+    transform: scale(1.1);
+  }
+
+  .proj .overlay {
+    position:absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(15, 23, 36, 0.9), transparent);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 20px;
+    opacity: 0;
+    transition: var(--transition);
+  }
+
+  .proj:hover .overlay, .proj .overlay {
+     opacity: 1; /* Always visible gradient but content moves */
+  }
+
+  .proj .meta {
+    transform: translateY(10px);
+    transition: var(--transition);
+  }
+
+  .proj:hover .meta {
+    transform: translateY(0);
+  }
+
+  .proj-title {
+    font-weight: 700;
+    font-size: 16px;
+    margin-bottom: 4px;
+  }
+
+  .proj-cat {
+    font-size: 12px;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-weight: 600;
+  }
+
+  /* ---------- Sidebar ---------- */
+  aside h3 {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 12px;
+  }
+
+  .contact-links {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .contact-link {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px;
+    border-radius: 12px;
+    background: rgba(255,255,255,0.03);
+    border: 1px solid var(--glass-border);
+    font-weight: 500;
+    transition: var(--transition);
+  }
+
+  .contact-link:hover {
+    background: rgba(255,255,255,0.06);
+    border-color: var(--accent);
+  }
+
+  .info-list {
+    margin-top: 24px;
+    border-top: 1px solid var(--glass-border);
+    padding-top: 24px;
+  }
+
+  .info-item {
+    display: flex;
+    margin-bottom: 12px;
+    font-size: 14px;
+    color: var(--text-muted);
+  }
+
+  .info-item span {
+    color: var(--text-primary);
+    font-weight: 600;
+    margin-right: 8px;
+  }
+
+  footer{
+    margin-top:auto;
+    padding-top: 40px;
+    text-align:center;
+    color:var(--text-muted);
+    font-size:14px;
+    opacity: 0.8;
+  }
+
+  /* ---------- Animations ---------- */
+  @keyframes slideDown {
+    from { transform: translateY(-20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes shimmer {
+    0% { transform: translateX(-100%) rotate(45deg); }
+    100% { transform: translateX(200%) rotate(45deg); }
+  }
+
+  /* ---------- Responsive ---------- */
+  @media (max-width:900px){
+    .grid{grid-template-columns:1fr}
+    .container{padding: 20px 16px}
+    header { flex-direction: column; align-items: flex-start; gap: 20px; }
+    nav { width: 100%; justify-content: space-between; overflow-x: auto; padding-bottom: 4px; }
+    .btn { padding: 10px 14px; white-space: nowrap; }
+  }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="brand">
+        <div class="logo">OR</div>
+        <div class="brand-text">
+          <h1>د. عمر أيمن رزق</h1>
+          <p>طبيب امتياز · خبير ذكاء صناعي · مدرب تعليم طبي</p>
+        </div>
+      </div>
+      <nav>
+        <a class="btn" href="#portfolio">أعمالي</a>
+        <a class="btn" href="#about">السيرة</a>
+        <a class="btn btn-primary" id="contactBtn" href="https://linktr.ee/Dr_Omar_Ayman_Rizk" target="_blank">
+          <span>تواصل معي</span>
+          <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+        </a>
+      </nav>
+    </header>
+
+    <main class="grid">
+      <section class="card about" id="about">
+        <h2 class="section-title">من أنا</h2>
+        <p class="about-text">
+          أنا طبيب امتياز شغوف بدمج التكنولوجيا مع الطب. أمتلك خبرة واسعة في استخدام أدوات الذكاء الاصطناعي لتطوير التعليم الطبي، بالإضافة إلى خبرة 3 سنوات في الجرافيك ديزاين.
+          <br><br>
+          أهدف إلى تبسيط المعلومات الطبية المعقدة من خلال تصميمات بصرية جذابة ومحتوى تعليمي مبتكر. أقدم خدمات احترافية تشمل تصميم العروض التقديمية، صناعة المحتوى الطبي، والتدريب على تقنيات الذكاء الاصطناعي.
+        </p>
+
+        <div style="margin-top:24px">
+          <h3 style="font-size:18px; font-weight:700">المهارات والتقنيات</h3>
+          <div class="skills">
+            <div class="skill">الذكاء الاصطناعي الطبي</div>
+            <div class="skill">تطوير التعليم الطبي</div>
+            <div class="skill">Adobe Photoshop</div>
+            <div class="skill">DaVinci Resolve</div>
+            <div class="skill">Stable Diffusion / ComfyUI</div>
+            <div class="skill">PowerPoint Design</div>
+            <div class="skill">Medical Infographics</div>
+          </div>
+        </div>
+
+        <div style="margin-top:32px;display:flex;gap:12px;flex-wrap:wrap">
+          <a class="btn btn-primary" href="#portfolio">تصفح معرض الأعمال</a>
+          <a class="btn" href="https://linktr.ee/Dr_Omar_Ayman_Rizk" target="_blank">السيرة الذاتية</a>
+        </div>
+      </section>
+
+      <aside class="card contact">
+        <h3>هل تبحث عن تعاون؟</h3>
+        <p style="margin-top:12px;color:var(--text-muted);line-height:1.6">
+          أرحب بالعمل على مشاريع إبداعية تخدم المجال الطبي والتعليمي.
+        </p>
+
+        <div class="contact-links">
+          <a href="https://linktr.ee/Dr_Omar_Ayman_Rizk" target="_blank" class="contact-link">
+            <span>رابط Linktree الموحد</span>
+            <svg style="margin-right:auto; opacity:0.5" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+          </a>
+          <a href="mailto:contact@omarrizk.com" class="contact-link">
+            <span>بريد إلكتروني</span>
+            <svg style="margin-right:auto; opacity:0.5" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+          </a>
+        </div>
+
+        <div class="info-list">
+          <div class="info-item"><span>الموقع:</span> القاهرة، مصر</div>
+          <div class="info-item"><span>التخصص:</span> طب بشري، تكنولوجيا التعليم</div>
+          <div class="info-item"><span>اللغات:</span> العربية (اللغة الأم)، الإنجليزية (طلاقة)</div>
+        </div>
+      </aside>
+    </main>
+
+    <section class="card" id="portfolio" style="margin-top:32px; animation: fadeIn 1s ease-out 0.6s backwards;">
+      <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px">
+        <h2 class="section-title" style="margin-bottom:0">معرض الأعمال</h2>
+        <p style="color:var(--text-muted);font-size:14px">نماذج مختارة من المشاريع السابقة</p>
+      </div>
+
+      <div class="portfolio-grid">
+        <a class="proj" href="#" title="عرض تقديمي لمؤتمر طبي">
+          <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?q=80&w=800&auto=format&fit=crop" alt="Medical Presentation">
+          <div class="overlay">
+            <div class="meta">
+              <div class="proj-cat">عرض تقديمي</div>
+              <div class="proj-title">تصميم عرض لمؤتمر طبي دولي</div>
+            </div>
+          </div>
+        </a>
+
+        <a class="proj" href="#" title="انفوجرافيك تعليمي">
+          <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=800&auto=format&fit=crop" alt="Infographic Design">
+          <div class="overlay">
+            <div class="meta">
+              <div class="proj-cat">جرافيك</div>
+              <div class="proj-title">سلسلة انفوجرافيك لتبسيط الأمراض</div>
+            </div>
+          </div>
+        </a>
+
+        <a class="proj" href="#" title="فيديو تعليمي بالذكاء الاصطناعي">
+          <img src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?q=80&w=800&auto=format&fit=crop" alt="AI Video Production">
+          <div class="overlay">
+            <div class="meta">
+              <div class="proj-cat">ميديا & AI</div>
+              <div class="proj-title">إنتاج فيديو تعليمي (Faceless)</div>
+            </div>
+          </div>
+        </a>
+
+        <a class="proj" href="#" title="أوراق بحثية وتلخيصات">
+          <img src="https://images.unsplash.com/photo-1532094349884-543bc11b234d?q=80&w=800&auto=format&fit=crop" alt="Research Papers">
+          <div class="overlay">
+            <div class="meta">
+              <div class="proj-cat">بحث علمي</div>
+              <div class="proj-title">تصميم وتنسيق أوراق بحثية</div>
+            </div>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <footer>
+      <p>© 2025 د. عمر أيمن رزق. جميع الحقوق محفوظة.</p>
+      <p style="margin-top:8px; font-size:12px; opacity:0.6">
+        تم التصميم والتطوير بعناية.
+      </p>
+    </footer>
+  </div>
+
+  <script>
+    (function(){
+      console.info('Portfolio loaded — Dr Omar Ayman Rizk');
+
+      // Smooth scroll for anchor links
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute('href'));
+          if(target) {
+            target.scrollIntoView({
+              behavior: 'smooth',
+              block: 'start'
+            });
+          }
+        });
+      });
+    })();
+  </script>
+</body>
+</html>
+
+
+
+<!-- FILE: README.md -->
+# ملفات الموقع — README
+
+الملفات المرفقة أسفله تُشكل الموقع الكامل كبايت HTML واحد (index.html). لتشغيله محليًا افتح `index.html` في المتصفح.
+
+## خطوات رفعه على GitHub Pages (مشروع) — طريقة سريعة:
+1. سجّل دخولك إلى GitHub.
+2. أنشئ مستودعًا جديدًا باسم تختاره — مثال: `Dr_Omar_Ayman_Rizk`.
+3. ارفع ملف `index.html` إلى المستودع (يمكن سحب وإفلات مباشرة في واجهة GitHub أو استخدام Git).
+4. اذهب إلى Settings → Pages.
+5. اختَر فرع `main` أو `master` ثم اضغط Save (أو اختر مجلد `/ (root)`).
+6. بعد دقائق سيصبح موقعك متاحًا على:
+   `https://<your-github-username>.github.io/Dr_Omar_Ayman_Rizk/`
+
+### رفع باستخدام Git (محلي):
+```bash
+# داخل مجلد المشروع
+git init
+git add index.html
+git commit -m "Initial portfolio"
+git branch -M main
+git remote add origin https://github.com/<your-github-username>/Dr_Omar_Ayman_Rizk.git
+git push -u origin main
+```
+
+## ملاحظات قبل النشر
+- استبدل صور الأعمال الحركية بالصور الحقيقية أو روابط لمشاريعك.
+- عدّل البريد الإلكتروني داخل `mailto:` في القالب.
+- إن أردت اسم رابط مختلفًا، سمّ المستودع كما تريد وسيكون الرابط وفق اسم المستودع.
+
+
+<!-- FILE: deploy_instructions.txt -->
+نصائح لتحسين السيو والظهور:
+- ضع سيرة ذاتية قابلة للتحميل (PDF) ورابط لها في الصفحة.
+- أضف وصفًا قصيرًا لكل مشروع مع كلمات مفتاحية (مثال: "تصميم عرض طبي لطلاب الطب، قالب بوربوينت تعليمي").
+- استخدم صورًا حقيقية، وأدمن خصائص `alt` لكل صورة.
+
+
+<!-- END OF FILE -->
